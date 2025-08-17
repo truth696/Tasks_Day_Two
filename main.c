@@ -5,13 +5,22 @@
 int main() {
     const int n = 50;
     const int s = 25;
-    char arr[n];
-    char arr1[n];;
-    int count = 0;
-    fgets(arr, s , stdin);
-    fgets(arr1, s , stdin);
-    int res = strspn_my(arr,arr1);
-    printf("%d",res);
-     
-return 0;
+
+    char arr[n + 30] = {};
+    char arr1[n] = {};
+
+    printf("input your text\n");
+    fgets(arr, s, stdin);
+    arr[strcspn(arr, "\n")] = '\0';  
+
+    printf("Input your text\n");
+    fgets(arr1, s, stdin);
+    arr1[strcspn(arr1, "\n")] = '\0';
+
+    int res = strspn_my(arr, arr1);
+
+    printf("%d\n", res);
+
+    return 0;
 }
+

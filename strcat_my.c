@@ -1,14 +1,17 @@
-#include "functions.h"
-void strcat_my(char* msg_input, const char * msg_end, int n ) {
+void strcat_my(char* msg_input,  char* msg_end) {
 
     int i = 0;
     int j = 0;
 
     while (msg_input[i]) {
+        if (msg_input[i] == '\n'){
+            msg_input[i]= ' ';
+            }
         ++i;
     }
-    for (j = 0; i+j+1<n; ++j) {
-        msg_input[i + j] = msg_end[j];
+    while (msg_end[j]) {
+        msg_input[i-1 + j] = msg_end[j];
+        ++j;
     }
     
 }
